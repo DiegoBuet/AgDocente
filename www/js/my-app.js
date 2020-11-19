@@ -238,3 +238,9 @@ function onErrorCamara(message) {
 
 }
 ;
+
+var calendarDateTime = app.calendar.create({
+  inputEl: '#demo-calendar-date-time',
+  timePicker: true,
+  dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
+});
