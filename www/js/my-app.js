@@ -39,6 +39,31 @@ var app = new Framework7({
         path: '/calendario/',
         url: 'calendario.html',
       },
+      {
+        path: '/principal/',
+        url: 'principal.html',
+      },
+      {
+        path: '/msemana/',
+        url: 'msemana.html',
+      },
+      {
+        path: '/psemana/',
+        url: 'psemana.html',
+      },
+      {
+        path: '/cusos/',
+        url: 'cusos.html',
+      },
+      {
+        path: '/dictado/',
+        url: 'dictado.html',
+      },
+      {
+        path: '/personalizacion/',
+        url: 'personalizacion.html',
+      },
+      
      /* { ACA SE CREA SOLA LA NUEVA VENTANA
         path: '/login-screen/',
         /*
@@ -79,6 +104,13 @@ var email, latitud, longitud;
 $$(document).on('deviceready', function() {
   mostrar("Device is ready!");
 });
+$$('.panel-left').on('panel:open', function () {
+  console.log('Panel left: open');
+});
+$$('.panel-left').on('panel:opened', function () {
+  console.log('Panel left: opened');
+});
+
 
 
 //.then( function () {
@@ -116,6 +148,12 @@ $$(document).on('page:init', '.page[data-name="registro1"]', function (e) {
 
 });
 
+$$(document).on('page:init', '.page[data-name="principal"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  
+
+});
+
 $$(document).on('page:init', '.page[data-name="registro2"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   mostrar('init reg2');
@@ -123,6 +161,80 @@ $$(document).on('page:init', '.page[data-name="registro2"]', function (e) {
   $$('#btnReg2').on('click', fnReg2);
 
 });
+$$(document).on('page:init', '.page[data-name="principal"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  
+
+});
+$$(document).on('page:init', '.page[data-name="msemana"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  
+
+});
+$$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  
+
+});
+$$(document).on('page:init', '.page[data-name="cusos"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  
+
+  var panelRight = app.panel.get('.panel-right-1');
+  panelRight.on('open', function () {
+  console.log('Panel right: open');
+});
+  
+
+});
+$$(document).on('page:init', '.page[data-name="dictado"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  
+
+});
+
+$$(document).on('page:init', '.page[data-name="personalizacion"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  
+
+});
+
+$$(document).on('page:init', '.page[data-name="calendario"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  
+
+  var calendarDateTime = app.calendar.create({
+    inputEl: '#demo-calendar-date-time',
+    timePicker: true,
+    dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
+  });
+  
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var weekLater = new Date().setDate(today.getDate() + 7);
+  var calendarEvents = app.calendar.create({
+      inputEl: '#demo-calendar-events',
+      events: [
+        {
+          from: today,
+          to: weekLater
+        },
+        //- more events this day
+        {
+          date: today,
+          color: '#ff0000'
+        },
+        {
+          date: today,
+          color: '#00ff00'
+        },
+      ]
+  });
+
+  
+
+});
+
 
 /* MIS FUNCIONES */
 function mostrar(txt) {
@@ -238,9 +350,21 @@ function onErrorCamara(message) {
 
 }
 ;
+$$("#nuevaf").on("click",)
+calendar:open
 
-var calendarDateTime = app.calendar.create({
-  inputEl: '#demo-calendar-date-time',
-  timePicker: true,
-  dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
+function calendario () {
+  return (calendarDateTime)
+
+}
+
+//Prueba paneles
+app.on('panelClose', function (panel) {
+  console.log('Panel ' + panel.side + ': close');
+});
+app.on('panelClosed', function (panel) {
+  console.log('Panel ' + panel.side + ': closed');
+});
+app.on('panelResize', function (panel, newPanelWidth) {
+  console.log('Panel resized to ' + newPanelWidth + 'px');
 });

@@ -84,4 +84,8 @@
 	font-family: 'Poppins', Arial, sans-serif;
 }
 
+.panel { /* a modo de ejemplo panel */
+  min-width: 100px;
+  max-width: 90vw;
+}
 
