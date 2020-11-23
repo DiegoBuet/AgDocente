@@ -1,0 +1,112 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
+<div class="page" data-name="cusos">
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+        <div class="left">
+            <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+            </a>
+        </div>
+        <div class="title">Curso 1</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="block-title">Curso 1</div>
+        <div class="block block-strong">
+            <div class="card data-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="input-cell">
+                        <span class="table-head-label">ID</span>
+                        <div class="input" style="width: 50px">
+                          <input type="number" placeholder="Filter">
+                        </div>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Name</span>
+                        <div class="input">
+                          <input type="text" placeholder="Filter">
+                        </div>
+                      </th>
+                      ...
+                      <th class="input-cell">
+                        <span class="table-head-label">Gender</span>
+                        <div class="input input-dropdown">
+                          <select>
+                            <option value="All">Todos</option>
+                            <option value="aprobado">Aprobado</option>
+                            <option value="desaprobado">Desaprobado</option>
+                          </select>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>John Doe</td>
+                      <td>john@doe.com</td>
+                      <td>desaprobado</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan segundo</td>
+                        <td>jsegundo@doe.com</td>
+                        <td>aprobado</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>John pelotas</td>
+                        <td>johnpelotas@doe.com</td>
+                        <td>aprobado</td>
+                      </tr>
+                    ...
+                  </tbody>
+                </table>
+              </div>
+            
+        </div>
+    </div>
+    <!--Los datos de los alumnos deberian mostarse así, y pudiendo modificarse...-->
+    <div>
+        <div class="card data-table data-table-collapsible data-table-init">
+            <div class="card-header">
+              <div class="data-table-title">Nutrition</div>
+              <div class="data-table-actions">
+                <a class="link icon-only">
+                  <i class="icon f7-icons if-not-md">line_horizontal_3_decrease</i>
+                  <i class="icon material-icons md-only">sort</i>
+                </a>
+                <a class="link icon-only">
+                  <i class="icon f7-icons if-not-md">ellipsis_vertical_circle</i>
+                  <i class="icon material-icons md-only">more_vert</i>
+                </a>
+              </div>
+            </div>
+            <div class="card-content">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="label-cell">Dessert (100g serving)</th>
+                    <th class="numeric-cell">Calories</th>
+                    ...
+                    <th class="numeric-cell">Protein (g)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="label-cell">Frozen yogurt</td>
+                    <td class="numeric-cell">159</td>
+                    ...
+                    <td class="numeric-cell">4.0</td>
+                  </tr>
+                  ...
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+    </div>
+</div>

@@ -101,15 +101,6 @@ var mainView = app.views.create('.view-main');
 var email, latitud, longitud;
 
 // Handle Cordova Device Ready Event
-$$(document).on('deviceready', function() {
-  mostrar("Device is ready!");
-});
-$$('.panel-left').on('panel:open', function () {
-  console.log('Panel left: open');
-});
-$$('.panel-left').on('panel:opened', function () {
-  console.log('Panel left: opened');
-});
 
 
 
@@ -358,13 +349,4 @@ function calendario () {
 
 }
 
-//Prueba paneles
-app.on('panelClose', function (panel) {
-  console.log('Panel ' + panel.side + ': close');
-});
-app.on('panelClosed', function (panel) {
-  console.log('Panel ' + panel.side + ': closed');
-});
-app.on('panelResize', function (panel, newPanelWidth) {
-  console.log('Panel resized to ' + newPanelWidth + 'px');
-});
+
