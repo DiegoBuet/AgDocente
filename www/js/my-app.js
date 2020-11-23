@@ -52,8 +52,8 @@ var app = new Framework7({
         url: 'psemana.html',
       },
       {
-        path: '/cusos/',
-        url: 'cusos.html',
+        path: '/cursos/',
+        url: 'cursos.html',
       },
       {
         path: '/dictado/',
@@ -62,6 +62,10 @@ var app = new Framework7({
       {
         path: '/personalizacion/',
         url: 'personalizacion.html',
+      },
+      {
+        path: '/curso1/',
+        url: 'curso1.html',
       },
       
      /* { ACA SE CREA SOLA LA NUEVA VENTANA
@@ -167,7 +171,7 @@ $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
   
 
 });
-$$(document).on('page:init', '.page[data-name="cusos"]', function (e) {
+$$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   
 
@@ -187,6 +191,17 @@ $$(document).on('page:init', '.page[data-name="dictado"]', function (e) {
 $$(document).on('page:init', '.page[data-name="personalizacion"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   
+
+});
+$$(document).on('page:init', '.page[data-name="curso1"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  //probando desplegar tabla
+  app.request.post('curso1.html', {  }, function (el) {
+   
+  $$('#tabla1').html(data);
+  app.dataTable.create('.mytable'); 
+   
+ });
 
 });
 
@@ -348,5 +363,7 @@ function calendario () {
   return (calendarDateTime)
 
 }
+
+
 
 
