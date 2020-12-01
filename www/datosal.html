@@ -1,0 +1,101 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
+<div class="page" data-name="datosal">
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+        <div class="left">
+            <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+            </a>
+        </div>
+        <div class="title">Datos de alumnos</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="block-title">Datos de alumnos</div>
+        <div class="block block-strong">
+            <!--cada curso tendrá, hoarios, temas tratados, temas a tratar, quizás fechas de exámenes, si no se complica mucho, lista de alumnos,  notas, tareas entregadas (con checklist),
+            de ser posible, tambien una forma de esa información poder reenviarla-->
+
+            <div class="block-title">Ingrese Los Datos Del Alumno</div>
+            <div class="list no-hairlines-md">
+              <form class="list form-store-data" id="my-form">
+                <ul>
+                    <li class="item-content item-input item-input-outline">
+                        <div class="item-media">
+                          <i class="icon demo-list-icon"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title item-floating-label">Nombre</div>
+                          <div class="item-input-wrap">
+                            <input id="nombreAl" type="text" placeholder="Nombre">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input item-input-outline">
+                        <div class="item-media">
+                          <i class="icon demo-list-icon"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title item-floating-label">Apellido</div>
+                          <div class="item-input-wrap">
+                            <input id="apellidoAl" type="text" placeholder="Apellido">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input item-input-outline">
+                        <div class="item-media">
+                          <i class="icon demo-list-icon"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title item-floating-label">Curso</div>
+                          <div class="item-input-wrap">
+                            <input id="cursoAl"  type="text" placeholder="Curso">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input item-input-outline">
+                        <div class="item-media">
+                          <i class="icon demo-list-icon"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title item-floating-label">Materia</div>
+                          <div class="item-input-wrap">
+                            <input id="materiaAl"  type="text" placeholder="Materia">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input item-input-outline">
+                        <div class="item-media">
+                          <i class="icon demo-list-icon"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title item-floating-label">E-mail</div>
+                          <div class="item-input-wrap">
+                            <input id="emailAl" type="email" placeholder="e-mail">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                </ul>
+              </form>
+            </div>
+            <div><button  id="guardarAl" class="col button button-fill color-gray">Ingresa nuevo alumno</button></div>
+            <div class="col-100"><button class="col button button-fill button-round" id="guardaAl">Guardar</button></div>
+            <!--<div id="guardarAl" class="col button button-fill color-gray">Ingresa nuevo alumno</div>-->
+            
+            <!--Me debería dejar crear un nuevo curso con nombre personalizado-->
+            <div class="col"><a id="btnInicio" class="col button button-fill color-red" href="/cursos/" data-view=".page-content">Crear Nuevo Curso</a></div>
+            <!--elimina un curso, no sé si la opción es mejor dentro de cada curso, o con este botón que sea solo para eliminarlos (despliegue la lista de los cursos)-->
+            <div class="col"><a id="btnInicio" class="col button button-fill color-red" href="/cursos/" data-view=".page-content">Eliminar Curso</a></div>
+        </div>
+    </div>
+    <!--Probando si sirven estos paneles-->
+    <div>
+
+    </div>
+</div>

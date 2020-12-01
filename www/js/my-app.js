@@ -67,6 +67,10 @@ var app = new Framework7({
         path: '/curso1/',
         url: 'curso1.html',
       },
+      {
+        path: '/datosal/',
+        url: 'datosal.html',
+      },
       
      /* { ACA SE CREA SOLA LA NUEVA VENTANA
         path: '/login-screen/',
@@ -175,10 +179,10 @@ $$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   
 
-  var panelRight = app.panel.get('.panel-right-1');
-  panelRight.on('open', function () {
-  console.log('Panel right: open');
-});
+  //var panelRight = app.panel.get('.panel-right-1');
+  //panelRight.on('open', function () {
+ // console.log('Panel right: open');
+//});
   
 
 });
@@ -193,6 +197,13 @@ $$(document).on('page:init', '.page[data-name="personalizacion"]', function (e) 
   
 
 });
+$$(document).on('page:init', '.page[data-name="datosal"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  $$("#guardaAl").on("click", datosAlumnos);
+
+});
+
+
 $$(document).on('page:init', '.page[data-name="curso1"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   //probando desplegar tabla
@@ -262,7 +273,7 @@ function fnLogin() {
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then( function() {
 
-       mainView.router.navigate("/panel/");
+       mainView.router.navigate("/principal/");
 
 
   })
@@ -295,6 +306,10 @@ function fnReg1() {
     // ...
   });
 }
+
+
+
+
   function fnReg2() {
 
     var db = firebase.firestore();
@@ -314,7 +329,7 @@ function fnReg1() {
 
     colPersonas.doc(claveDeColeccion).set(datos)
     .then( function() {
-        mainView.router.navigate("/panel/");
+        mainView.router.navigate("/principal/");
 
 
     })
@@ -362,7 +377,38 @@ calendar:open
 function calendario () {
   return (calendarDateTime)
 
-}
+};
+function datosAlumnos () {
+  var db = firebase.firestore();  
+  var colAlumnos = db.collection('alumnos');
+  var fechaEnMiliseg = ""+ Date.now();
+  
+
+  nombre=""+ $$("#nombreAl").val();
+  apellido=""+ $$("#apellidoAl").val();
+  curso=""+ $$("#cursoAl").val();
+  materia=""+ $$("#materiaAl").val();
+  email=""+ $$("#emailAl").val();
+
+  datos = {
+    nombre: nombre,
+    apellido: apellido,
+    curso: curso, 
+    materia: materia,
+    email: email
+
+  };
+
+  colAlumnos.doc(fechaEnMiliseg).set(datos)
+      .then(function(){ 
+      alert("datos ingresados");
+  } );
+
+
+
+
+
+};
 
 
 
