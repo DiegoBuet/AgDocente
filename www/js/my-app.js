@@ -72,34 +72,7 @@ var app = new Framework7({
         url: 'datosal.html',
       },
       
-     /* { ACA SE CREA SOLA LA NUEVA VENTANA
-        path: '/login-screen/',
-        /*
-        We can load it from url like:
-        url: 'login-screen.html'
-        But in this example we load it just from content string
-        */
-      /*  content: '\
-        <div class="page no-navbar no-toolbar no-swipeback">\
-            <div class="page-content login-screen-content">\
-              <div class="login-screen-title">Agenda docente</div>\
-              <form>\
-                <div class="list">\
-                </div>\
-                <div class="list">\
-                  <ul>\
-                    <li><a href="#" class="list-button">Ingresar</a></li>\
-                  </ul>\
-                  <div class="block-footer">\
-                    <p>Bienvenido, ya tienes una cuenta?</p>\
-                    <p><a href="#" class="link back">Cerrar ventana de usuario</a></p>\
-                  </div>\
-                </div>\
-              </form>\
-            </div>\
-          </div>'
-        }
-      */
+     
     ]
     
     // ... other parameters
@@ -167,7 +140,7 @@ $$(document).on('page:init', '.page[data-name="principal"]', function (e) {
 });
 $$(document).on('page:init', '.page[data-name="msemana"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
-  
+  $$("#guardarMsem").on("click", mSemana);
 
 });
 $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
@@ -404,12 +377,190 @@ function datosAlumnos () {
       alert("datos ingresados");
   } );
 
+  
+
 
 
 
 
 };
+function mSemana () {
+  var db = firebase.firestore();  
+  var colmSemana = db.collection('miSemana');
+  
+  
+
+  
+
+  datosMsem = {
+    hmL1:$$("#1hmL").val(),
+    hmL2:$$("#2hmL").val(),
+    hmL3:$$("#3hmL").val(),
+    hmL4:$$("#4hmL").val(),
+    hmL5:$$("#5hmL").val(),
+    hmL6:$$("#6hmL").val(),
+
+    htL1:$$("#1htL").val(),
+    htL2:$$("#2htL").val(),
+    htL3:$$("#3htL").val(),
+    htL4:$$("#4htL").val(),
+    htL5:$$("#5htL").val(),
+    htL6:$$("#6htL").val(),
+
+    hnL1:$$("#1hnL").val(),
+    hnL2:$$("#2hnL").val(),
+    hnL3:$$("#3hnL").val(),
+    hnL4:$$("#4hnL").val(),
+    hnL5:$$("#5hnL").val(),
+    hnL6:$$("#6hnL").val(),
+    
+    hmMar1:$$("#1hmMar").val(),
+    hmMar2:$$("#2hmMar").val(),
+    hmMar3:$$("#3hmMar").val(),
+    hmMar4:$$("#4hmMar").val(),
+    hmMar5:$$("#5hmMar").val(),
+    hmMar6:$$("#6hmMar").val(),
+
+    htMar1:$$("#1htMar").val(),
+    htMar2:$$("#2htMar").val(),
+    htMar3:$$("#3htMar").val(),
+    htMar4:$$("#4htMar").val(),
+    htMar5:$$("#5htMar").val(),
+    htMar6:$$("#6htMar").val(),
+
+    hnMar1:$$("#1hnMar").val(),
+    hnMar2:$$("#2hnMar").val(),
+    hnMar3:$$("#3hnMar").val(),
+    hnMar4:$$("#4hnMar").val(),
+    hnMar5:$$("#5hnMar").val(),
+    hnMar6:$$("#6hnMar").val(),
+
+    hmMie1:$$("#1hmMie").val(),
+    hmMie2:$$("#2hmMie").val(),
+    hmMie3:$$("#3hmMie").val(),
+    hmMie4:$$("#4hmMie").val(),
+    hmMie5:$$("#5hmMie").val(),
+    hmMie6:$$("#6hmMie").val(),
+
+    htMie1:$$("#1htMie").val(),
+    htMie2:$$("#2htMie").val(),
+    htMie3:$$("#3htMie").val(),
+    htMie4:$$("#4htMie").val(),
+    htMie5:$$("#5htMie").val(),
+    htMie6:$$("#6htMie").val(),
+
+    hnMie1:$$("#1hnMie").val(),
+    hnMie2:$$("#2hnMie").val(),
+    hnMie3:$$("#3hnMie").val(),
+    hnMie4:$$("#4hnMie").val(),
+    hnMie5:$$("#5hnMie").val(),
+    hnMie6:$$("#6hnMie").val(),
+
+    hmJ1:$$("#1hmJ").val(),
+    hmJ2:$$("#2hmJ").val(),
+    hmJ3:$$("#3hmJ").val(),
+    hmJ4:$$("#4hmJ").val(),
+    hmJ5:$$("#5hmJ").val(),
+    hmJ6:$$("#6hmJ").val(),
+
+    htJ1:$$("#1htJ").val(),
+    htJ2:$$("#2htJ").val(),
+    htJ3:$$("#3htJ").val(),
+    htJ4:$$("#4htJ").val(),
+    htJ5:$$("#5htJ").val(),
+    htJ6:$$("#6htJ").val(),
+
+    hnJ1:$$("#1hnJ").val(),
+    hnJ2:$$("#2hnJ").val(),
+    hnJ3:$$("#3hnJ").val(),
+    hnJ4:$$("#4hnJ").val(),
+    hnJ5:$$("#5hnJ").val(),
+    hnJ6:$$("#6hnJ").val(),
+
+    hmV1:$$("#1hmV").val(),
+    hmV2:$$("#2hmV").val(),
+    hmV3:$$("#3hmV").val(),
+    hmV4:$$("#4hmV").val(),
+    hmV5:$$("#5hmV").val(),
+    hmV6:$$("#6hmV").val(),
+
+    htV1:$$("#1htV").val(),
+    htV2:$$("#2htV").val(),
+    htV3:$$("#3htV").val(),
+    htV4:$$("#4htV").val(),
+    htV5:$$("#5htV").val(),
+    htV6:$$("#6htV").val(),
+
+    hnV1:$$("#1hnV").val(),
+    hnV2:$$("#2hnV").val(),
+    hnV3:$$("#3hnV").val(),
+    hnV4:$$("#4hnV").val(),
+    hnV5:$$("#5hnV").val(),
+    hnV6:$$("#6hnV").val(),
+
+    hmS1:$$("#1hmS").val(),
+    hmS2:$$("#2hmS").val(),
+    hmS3:$$("#3hmS").val(),
+    hmS4:$$("#4hmS").val(),
+    hmS5:$$("#5hmS").val(),
+    hmS6:$$("#6hmS").val(),
+
+    htS1:$$("#1htS").val(),
+    htS2:$$("#2htS").val(),
+    htS3:$$("#3htS").val(),
+    htS4:$$("#4htS").val(),
+    htS5:$$("#5htS").val(),
+    htS6:$$("#6htS").val(),
+
+    hnS1:$$("#1hnS").val(),
+    hnS2:$$("#2hnS").val(),
+    hnS3:$$("#3hnS").val(),
+    hnS4:$$("#4hnS").val(),
+    hnS5:$$("#5hnS").val(),
+    hnS6:$$("#6hnS").val(),
+
+    hmD1:$$("#1hmD").val(),
+    hmD2:$$("#2hmD").val(),
+    hmD3:$$("#3hmD").val(),
+    hmD4:$$("#4hmD").val(),
+    hmD5:$$("#5hmD").val(),
+    hmD6:$$("#6hmD").val(),
+
+    htD1:$$("#1htD").val(),
+    htD2:$$("#2htD").val(),
+    htD3:$$("#3htD").val(),
+    htD4:$$("#4htD").val(),
+    htD5:$$("#5htD").val(),
+    htD6:$$("#6htD").val(),
+
+    hnD1:$$("#1hnD").val(),
+    hnD2:$$("#2hnD").val(),
+    hnD3:$$("#3hnD").val(),
+    hnD4:$$("#4hnD").val(),
+    hnD5:$$("#5hnD").val(),
+    hnD6:$$("#6hnD").val(),
+
+    
+
+  };
+
+  colmSemana.doc().set(datosMsem)
+      .then(function(){ 
+      alert("datos ingresados");
+  } );
 
 
 
+};
+
+function mSemana (){
+  var db = firebase.firestore();  
+  var docRef = db.collection("miSemana").doc("datosMsem");
+  
+  db.collection("miSemana").doc("datosMsem")
+      .onSnapshot(function(doc) {
+          console.log("Current data: ", doc.data());
+      });
+
+}
 

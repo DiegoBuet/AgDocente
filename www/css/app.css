@@ -109,6 +109,7 @@
   --f7-menu-dropdown-padding-vertical: 6px;
   
   /*
+  
   --f7-menu-dropdown-border-radius: var(--f7-menu-item-border-radius);
   */
 }
@@ -127,5 +128,21 @@
 .fila{
   flex-direction: row;  
   
+}
+.caja{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.centrado{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+h5{
+  text-align: left;
+  justify-content: left;
+  margin-right: 40px;
 }
 
