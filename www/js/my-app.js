@@ -68,6 +68,14 @@ var app = new Framework7({
         url: 'curso1.html',
       },
       {
+        path: '/curso2/',
+        url: 'curso2.html',
+      },
+      {
+        path: '/curso2/',
+        url: 'curso2.html',
+      },
+      {
         path: '/datosal/',
         url: 'datosal.html',
       },
@@ -140,7 +148,9 @@ $$(document).on('page:init', '.page[data-name="principal"]', function (e) {
 });
 $$(document).on('page:init', '.page[data-name="msemana"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
+  $$("#btnmSemana").on("click", mSemanaD);
   $$("#guardarMsem").on("click", mSemana);
+
 
 });
 $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
@@ -175,17 +185,80 @@ $$(document).on('page:init', '.page[data-name="datosal"]', function (e) {
   $$("#guardaAl").on("click", datosAlumnos);
 
 });
+$$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  //probando desplegar tabla
+  $$("#mostrar").on("click", vamoAver);
+  $$("#guardarDatosAl").on("click", function(){
+    console.log($$("#nombreAl").val())
+    dbPublicacion = firebase.firestore();
+    var sumarAlumn =
+    {
+      id: $$("#idAlumno").val(),
+      nombre: $$("#nombreAl").val(),
+      apellido: $$("#apellidoAl").val(),
+      curso: $$("#cursoAl").val(),
+      materia: $$("#materiaAl").val(),
+      email: $$("#emailAl").val()
+    
+      
+    };
+    dbPublicacion.collection("datosAl").add(sumarAlumn)
+    .then(function()
+  {
+    app.dialog.alert("Subida con exito");
+    console.log("Subida con exito");
+  })
+  .catch(function(error) 
+  {
+    app.dialog.alert("Error al subir un documento:  ", error);
+    console.error("Error al subir un documento:  ", error);
+  });
+});
+$$("#mostrar").on("click", function(){
+
+  dbPublicacion = firebase.firestore();
+  var docRef = dbPublicacion.collection("datosAl");
+  docRef.get().then(function(doc) 
+  {    
+    doc.forEach(element => 
+    {
+      console.log(element.data());
+      $$("#muestra").append('<div id="1"></div>');
+        $$("#").append('<input type="text" id="nes" value="'+element.data().nombre+'">');
+    });
+  })
+  .catch(function(error) 
+  {
+    console.log("Error getting document:", error);
+  });
+
+
+})
+  //app.request.post('curso1.html', {  }, function (el) {
+   
+  //$$('#tabla1').html(data);
+  //app.dataTable.create('.mytable'); 
+   
+// });
+ 
+ 
+
+});
 
 
 $$(document).on('page:init', '.page[data-name="curso1"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   //probando desplegar tabla
+  $$("#agregarAl").on("click", guardarDatAl)
   app.request.post('curso1.html', {  }, function (el) {
    
   $$('#tabla1').html(data);
   app.dataTable.create('.mytable'); 
    
  });
+ 
+ 
 
 });
 
@@ -232,7 +305,12 @@ function mostrar(txt) {
     console.log(txt);
   }
 }
-
+$$('.my-sheet').on('sheet:open', function (e) {
+  console.log('my-sheet open');
+});
+$$('.my-sheet').on('sheet:opened', function (e) {
+  console.log('my-sheet opened');
+});
 
 function fnLogin() {
   // prueba@prueba.com - prueba
@@ -355,6 +433,8 @@ function datosAlumnos () {
   var db = firebase.firestore();  
   var colAlumnos = db.collection('alumnos');
   var fechaEnMiliseg = ""+ Date.now();
+
+  
   
 
   nombre=""+ $$("#nombreAl").val();
@@ -553,14 +633,83 @@ function mSemana () {
 
 };
 
-function mSemana (){
+function mSemanaD (){
   var db = firebase.firestore();  
   var docRef = db.collection("miSemana").doc("datosMsem");
   
   db.collection("miSemana").doc("datosMsem")
       .onSnapshot(function(doc) {
-          console.log("Current data: ", doc.data());
+          console.log("", doc.data());
       });
 
+}
+//Tratando de recuperar los datos
+
+function recSem () {
+
+
+  var recuperaSem = firebase.database().ref('miSemana/' + postId + '/datosMsem');
+  starCountRef.on('value', (snapshot) =>{
+    const data = snapshot.val();
+    updateStarCount(postElement, data);
+  });
+}
+//tratando de traer el id
+//private void datosAlumno (){
+ // mFirestore.collection(collectionPath:"datosAl")}
+
+ function vamoAver(){
+
+
+    db=firebase.firestore();
+   var tabla = document.getElementById("mostrar");
+   db.collection("datosAl").onSnapshot((querySnapshot)=> {
+     tabla.innerHTML = "";
+     querySnapshot.forEach((doc)=>{
+       console.log(`$${doc.id}=>$${doc.data()}`);
+       tabla.innerHTML +=`
+       <tr>
+       <th scope="row">${doc.id}</th>     
+       <td>${doc.data().nombre}</td>
+       <td>${doc.data().apellido}</td>
+       <td>${doc.data().curso}</td>
+       <td>${doc.data().materia}</td>
+       <td>${doc.data().email}</td>
+       </tr>
+       `
+     })
+   }
+   )
+ };
+
+
+
+//function guardarDatAl (){
+function guardarD(){
+  
+
+
+  dbPublicacion = firebase.firestore();
+  var sumarAlumn =
+  {
+    id : $$('#id').val(),
+    nombre: $$("#nombre").val(),
+    apellido: $$("#apellidoAl").val(),
+    curso: $$("#cursoAl").val(),
+    materia: $$("#materiaAl").val(),
+    email: $$("#emailAl").val(),
+    
+  };
+  dbPublicacion.collection("datosAl").add(sumarAlumn)
+  .then(function()
+  {
+    app.dialog.alert("Subida con exito");
+    console.log("Subida con exito");
+  })
+  .catch(function(error) 
+  {
+    app.dialog.alert("Error al subir un documento:  ", error);
+    console.error("Error al subir un documento:  ", error);
+  });
 }
 
