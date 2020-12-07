@@ -13,15 +13,16 @@
     </div>
     <div class="page-content">
             <!-- aca arrancamos a probar-->
-            <div id="muestra">
-              <button id="mostrar">Mostrar</button>
+            
+            <div id="muestra" class="col button button-fill">
+              <button id="mostrar">Lista Alumnos</button>
               
             </div>
             <div id="traerM">
 
             </div>
             <button type="button" class="link sheet-close btn btn-secondary col-50" data-dismiss="modal">Cerrar</button>
-            <button  class="col button button-fill"><p><a type="button" href="#" data-sheet=".my-sheet" class="sheet-open">abrir coso</a></p> </button> 
+            <button  class="col button button-fill color-grey"><p><a type="button" href="#" data-sheet=".my-sheet" class="sheet-open button button-fill "> Abrir Coso</a></p></button> 
             <div>
               <table id="tablaAlumno" class="table table-bordered">
                 <thead>
@@ -31,6 +32,7 @@
                     <th scope="col">Curso</th>
                     <th scope="col">Materia</th>
                     <th scope="col">Email</th>
+                    <th scope="col">teléfono</th>
                   </tr>
       
                 </thead>
@@ -75,6 +77,10 @@
                             <label>Email</label>
                             <input id="emailAl" type="email" class="form-control">
                           </div>
+                          <div class="form-group">
+                            <label>Teléfono</label>
+                            <input id="telefonoAl" type="text" class="form-control">
+                          </div>
                         </form>
                          
                         </div>
@@ -92,40 +98,10 @@
                   
                 </div>
               </div>
-            </div>        
-
-       
-        <!--Los datos de los alumnos deberian mostarse así, y pudiendo modificarse...-->
-        <!--Los datos de los alumnos deberian mostarse así, y pudiendo modificarse...-->
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
-              <button id="agregarAl" class="btn btn-primary" data-toggle="tooltip" value="agregar alumno"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/></svg></button>
-              <button id="agregarAl" class="col button button-fill color-grey"></button>
-              <!-- Modal -->              
+            </div>              
+        
+        
           
-
-
-              </div>
-            </div>
-          </div>
-          <div>
-            <table id="tablaAlumno 1" class="table table-bordered">
-              <thead>
-                <tr class="bg-dark text-light">
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Curso</th>
-                  <th scope="col">Materia</th>
-                  <th scope="col">Email</th>
-                </tr>
-    
-              </thead>
-              <tbody id="bodyAlumnos">
-    
-              </tbody>
-            </table>
-          </div>
         </div>
     </div>
 
