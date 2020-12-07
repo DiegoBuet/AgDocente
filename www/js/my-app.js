@@ -79,6 +79,10 @@ var app = new Framework7({
         path: '/datosal/',
         url: 'datosal.html',
       },
+      {
+        path: '/prueba/',
+        url: 'prueba.html',
+      },
       
      
     ]
@@ -89,6 +93,7 @@ var app = new Framework7({
 var mainView = app.views.create('.view-main');
 var email, latitud, longitud;
 var p = 1;
+var arrayId =[];
 
 // Handle Cordova Device Ready Event
 
@@ -161,9 +166,12 @@ $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
 });
 $$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
-  $$("#crearcurso").on("click", function(){
+  
+  $$("#crearcurso").on("click", function(){    
     $$("#contenedorCurso").append("<div id='"+p+"'><a href='curso"+p+"'><input id='"+p+"'>Nuevo cursanga</a></div>");
+    $$("#"+p).HTML('')
     p++;
+
 
   })
 
@@ -171,7 +179,13 @@ $$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
   //panelRight.on('open', function () {
  // console.log('Panel right: open');
 //});
-  
+$$(document).on('page:init', '.page[data-name="prueba"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+ 
+
+ 
+
+});
 
 });
 $$(document).on('page:init', '.page[data-name="dictado"]', function (e) {
@@ -206,7 +220,7 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
       materia: $$("#materiaAl").val(),
       email: $$("#emailAl").val(),
       telefono: $$("#telefonoAl").val(),      
-      id: $$("#idAlumno").val()
+      
     
       
     };
@@ -675,7 +689,7 @@ function recSem () {
    db.collection("datosAl").onSnapshot((querySnapshot)=> {
      tabla.innerHTML = "";
      querySnapshot.forEach((doc)=>{
-       console.log(`${doc.id}=>${doc.data()}`);
+       console.log(`${doc.id}=>${doc.data()}`);       
        tabla.innerHTML +=`
        <tr>
             
@@ -687,7 +701,11 @@ function recSem () {
        <td>${doc.data().telefono}</td>
        </tr>
        `
+      // arrayId.push(doc.id);
+
      })
+     //console.log(arrayId);
+    
    }
    )
  };
@@ -702,7 +720,7 @@ function guardarD(){
   dbPublicacion = firebase.firestore();
   var sumarAlumn =
   {
-    id:$$('#id').val(),
+    //id:$$('#id').val(),
     nombre: $$("#nombre").val(),
     apellido: $$("#apellidoAl").val(),
     curso: $$("#cursoAl").val(),
