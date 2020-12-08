@@ -79,11 +79,7 @@ var app = new Framework7({
         path: '/datosal/',
         url: 'datosal.html',
       },
-      {
-        path: '/prueba/',
-        url: 'prueba.html',
-      },
-      
+            
      
     ]
     
@@ -96,7 +92,7 @@ var p = 1;
 var arrayId =[];
 
 // Handle Cordova Device Ready Event
-
+//crearcurso
 
 
 //.then( function () {
@@ -167,9 +163,12 @@ $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
 $$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   
-  $$("#crearcurso").on("click", function(){    
-    $$("#contenedorCurso").append("<div id='"+p+"'><a href='curso"+p+"'><input id='"+p+"'>Nuevo cursanga</a></div>");
-    $$("#"+p).HTML('')
+  $$("#rompamo").on("click", function(){ 
+        $$("#contenedorCurso"+p).append(" <div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill'> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody> </table>      </div>");
+        
+
+    $$("#contenedorCurso").append("<div class='col button button-fill color-red' id='"+p+"'><a href='curso"+p+"'><input id='"+p+"'></a></div>");
+    $$("#"+p).append("'<div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div><div class='sheet-modal sheet-modal-top' style='height: auto'><div class='sheet-modal-inner'><div class=''><div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'><div id='modalAltaEdicion' class='sheet-modal-inner'><div class='sheet-modal-swipe-step'><form id='formAl' ><div class='modal-body'><div class='form-group'><label>Nombre</label><input id='nombreAl' type='text' class='form-control'></div><div class='form-group'><label>Apellido</label><input id='apellidoAl' type='text' class='form-control'></div><div class='form-group'><label>Curso</label><input id='cursoAl' type='text' class='form-control'></div><div class='form-group'><label>Materia</label><input id='materiaAl' type='text' class='form-control'></div><div class='form-group'><label>Email</label><input id='emailAl' type='email' class='form-control'></div><div class='form-group'><label>Teléfono</label><input id='telefonoAl' type='text' class='form-control'></div></form></div><div class='row'><button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button><button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button><button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button></div></div></div></div></div></div>")
     p++;
 
 
@@ -179,13 +178,6 @@ $$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
   //panelRight.on('open', function () {
  // console.log('Panel right: open');
 //});
-$$(document).on('page:init', '.page[data-name="prueba"]', function (e) {
-  // Do something here when page with data-name="about" attribute loaded and initialized
- 
-
- 
-
-});
 
 });
 $$(document).on('page:init', '.page[data-name="dictado"]', function (e) {
@@ -196,6 +188,42 @@ $$(document).on('page:init', '.page[data-name="dictado"]', function (e) {
 
 $$(document).on('page:init', '.page[data-name="personalizacion"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
+  $("#btnRojo").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-red");
+    });
+  $("#btnVerde").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-green");
+    });
+  $("#btnAzul").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-blue");
+    });
+  $("#btnRosa").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-pink");
+    });
+  $("#btnAmarillo").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-yellow");
+    });
+  $("#btnNaranja").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-orange");
+    });
+  $("#btnVioleta").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-purple");
+    });
+  $("#btnPurpura").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-deeppurple");
+    });
+  $("#btnGris").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-gray");
+    });
+  $("#btnNegro").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-black");
+    });
+  $("#btnCeleste").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-lightblue");
+    });
+  $("#btnVerdeClaro").on("click", function () {
+    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-teal");
+    });
   
 
 });
