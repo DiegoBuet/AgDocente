@@ -224,11 +224,18 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
     
       
     };
-    dbPublicacion.collection("datosAl").add(sumarAlumn)
+    dbPublicacion.collection("datosAl").sadd(sumarAlumn)
     .then(function()
   {
     app.dialog.alert("Subida con exito");
     console.log("Subida con exito");
+    
+    $$("#nombreAl").val(""),
+    $$("#apellidoAl").val(""),
+    $$("#cursoAl").val(""),
+    $$("#materiaAl").val(""),
+    $$("#emailAl").val(""),
+    $$("#telefonoAl").val("")  
   })
   .catch(function(error) 
   {
@@ -246,7 +253,7 @@ $$("#mostrar").on("click", function(){
     {
       console.log(element.data());
       $$("#muestra").append('<div id="1"></div>');
-        $$("#").append('<input type="text" id="nes" value="'+element.data().nombre+'">');
+      $$("#").append('<input type="text" id="nes" value="'+element.data().nombre+'">');
     });
   })
   .catch(function(error) 
@@ -378,9 +385,6 @@ function fnReg1() {
     // ...
   });
 }
-
-
-
 
   function fnReg2() {
 
@@ -658,7 +662,7 @@ function mSemana () {
 
 function mSemanaD (){
   var db = firebase.firestore();  
-  var docRef = db.collection("miSemana").doc("datosMsem");
+  var docRef = db.collection("miSemana").doc(datosMsem);
   
   db.collection("miSemana").doc("datosMsem")
       .onSnapshot(function(doc) {
