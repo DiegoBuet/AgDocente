@@ -189,40 +189,40 @@ $$(document).on('page:init', '.page[data-name="dictado"]', function (e) {
 $$(document).on('page:init', '.page[data-name="personalizacion"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   $("#btnRojo").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-red");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("rojo");
     });
   $("#btnVerde").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-green");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("verde");
     });
   $("#btnAzul").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-blue");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("azul");
     });
   $("#btnRosa").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-pink");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("rosa");
     });
   $("#btnAmarillo").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-yellow");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("amarillo");
     });
   $("#btnNaranja").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-orange");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("naranja");
     });
   $("#btnVioleta").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-purple");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("violeta");
     });
   $("#btnPurpura").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-deeppurple");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("purpura");
     });
   $("#btnGris").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-gray");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("gris");
     });
   $("#btnNegro").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-black");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("negro");
     });
   $("#btnCeleste").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-lightblue");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("celeste");
     });
   $("#btnVerdeClaro").on("click", function () {
-    $("#cambiarColor").removeClass("color-theme").addClass("color-theme-teal");
+    $("#cambiarColor").removeClass("tema rojo verde azul rosa amarillo naranja violeta purpura gris negro celeste verdeaz").addClass("verdeaz");
     });
   
 
