@@ -15,73 +15,91 @@
 
     </div>
     <div class='page-content'>
-            <div id='muestra' class='col button button-fill'>
-              <button id='mostrar'>Lista Alumnos</button>
-            </div>
-            <div id='traerM'>
-            </div>
-            <button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button>
-            <button class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill'> Abrir Coso</a></p></button> 
-            <div>
-              <table id='tablaAlumno' class='table table-bordered'>
-                <thead>
-                  <tr class='bg-dark text-light'>
-                    <th scope='col'>Nombre</th>
-                    <th scope='col'>Apellido</th>
-                    <th scope='col'>Curso</th>
-                    <th scope='col'>Materia</th>
-                    <th scope='col'>Email</th>
-                    <th scope='col'>teléfono</th>
-                  </tr>
-                </thead>
-                <tbody id='bodyAlumnos'>
-                </tbody>
-              </table>
-            </div>
-            <div class='sheet-modal sheet-modal-top' style='height:auto'>
-              <div class='sheet-modal-inner'>  
-                <div>
-                  <div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'>
-                    <div id='modalAltaEdicion' class='sheet-modal-inner'>
-                      <div class='sheet-modal-swipe-step'>
-                        <form id='formAl' >
-                        <div class='modal-body'>                          
-                          <div class='form-group'>
-                            <label>Nombre</label>
-                            <input id='nombreAl' type='text' class='form-control'>
-                          </div>
-                          <div class='form-group'>
-                            <label>Apellido</label>
-                            <input id='apellidoAl' type='text' class='form-control'>
-                          </div>
-                          <div class='form-group'>
-                            <label>Curso</label>
-                            <input id='cursoAl' type='text' class='form-control'>
-                          </div>
-                          <div class='form-group'>
-                            <label>Materia</label>
-                            <input id='materiaAl' type='text' class='form-control'>
-                          </div>
-                          <div class='form-group'>
-                            <label>Email</label>
-                            <input id='emailAl' type='email' class='form-control'>
-                          </div>
-                          <div class='form-group'>
-                            <label>Teléfono</label>
-                            <input id='telefonoAl' type='text' class='form-control'>
-                          </div>
-                        </form>                         
-                        </div>
-                        <div class='row'>                          
-                          <button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button>
-                          <button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button>
-                          <button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button>
-                        </div>
-                      </div>
-                    </div>   
+      <div id='muestra' class='col button button-fill'>
+        <button id='mostrar'>Lista Alumnos</button>
+        
+      </div>
+      <div id='traerM'>
+
+      </div>
+      <button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button>
+      <button  class='col button button-fill'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button> 
+      <div>
+        <table id='tablaAlumno' class='table table-bordered'>
+          <thead>
+            <tr class='bg-dark text-light'>
+              <th scope='col'>Nombre</th>
+              <th scope='col'>Apellido</th>
+              <th scope='col'>Curso</th>
+              <th scope='col'>Materia</th>
+              <th scope='col'>Email</th>
+              <th scope='col'>teléfono</th>
+            </tr>
+
+          </thead>
+          <tbody id='bodyAlumnos'>
+
+          </tbody>
+        </table>
+      </div>           
+
+     
+      <div class='sheet-modal sheet-modal-top' style='height: auto'>
+        <div class='sheet-modal-inner'>
+          <!-- rest of the content that will be opened with extra swipe -->
+          
+          <!-- initial sheet modal content -->
+          <div class=''>
+            <!--abajo de esto-->
+            <div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'>
+              <div id='modalAltaEdicion' class='sheet-modal-inner'>
+                <div class='sheet-modal-swipe-step'>
+                 
+                  <form id='formAl' >
+                  <div class='modal-body'>
+                    <input id='idAlumno' type='hidden'>
+                    <div class='form-group'>
+                      <label>Nombre</label>
+                      <input id='nombreAl' type='text' class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                      <label>Apellido</label>
+                      <input id='apellidoAl' type='text' class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                      <label>Curso</label>
+                      <input id='cursoAl' type='text' class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                      <label>Materia</label>
+                      <input id='materiaAl' type='text' class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                      <label>Email</label>
+                      <input id='emailAl' type='email' class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                      <label>Teléfono</label>
+                      <input id='telefonoAl' type='text' class='form-control'>
+                    </div>
+                  </form>
+                   
+                  </div>
+                  <div class='row'>                          
+                    <button type='submit' id='agregarAl' class='btn btn-primary col-50'>Agregar</button>
+                    <button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button>
+                    <button type='button' id='guardarDatosAl' class='col button button-fill'>Guardar</button>
+                  </div>
                 </div>
               </div>
-            </div>  
+              <!--hasta acá-->
+              
+
+            
+            
+          </div>
+        </div>
+      </div>              
     </div>
 
 </div>

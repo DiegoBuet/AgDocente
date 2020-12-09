@@ -64,17 +64,13 @@ var app = new Framework7({
         url: 'personalizacion.html',
       },
       {
-        path: '/curso1/',
-        url: 'curso1.html',
+        path: '/cursosnuevos/',
+        url: 'cursosnuevos.html',
       },
       {
         path: '/curso2/',
         url: 'curso2.html',
-      },
-      {
-        path: '/curso2/',
-        url: 'curso2.html',
-      },
+      },      
       {
         path: '/datosal/',
         url: 'datosal.html',
@@ -92,8 +88,29 @@ var p = 1;
 var arrayId =[];
 
 // Handle Cordova Device Ready Event
-//crearcurso
-
+//Probando Calendario
+var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var weekLater = new Date().setDate(today.getDate() + 7);
+  var calendarEvents = app.calendar.create({
+      inputEl: '#demo-calendar-events',
+      events: [
+        {
+          from: today,
+          to: weekLater
+        },
+        //- more events this day
+        {
+          date: today,
+          color: '#ff0000'
+        },
+        {
+          date: today,
+          color: '#00ff00'
+        },
+      ]
+  });
+  console.log(weekLater)
 
 //.then( function () {
 
@@ -164,11 +181,9 @@ $$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   
   $$("#rompamo").on("click", function(){ 
-        $$("#contenedorCurso"+p).append(" <div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill'> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody> </table>      </div>");
-        
-
-    $$("#contenedorCurso").append("<div class='col button button-fill color-red' id='"+p+"'><a href='curso"+p+"'><input id='"+p+"'></a></div>");
-    $$("#"+p).append("'<div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div><div class='sheet-modal sheet-modal-top' style='height: auto'><div class='sheet-modal-inner'><div class=''><div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'><div id='modalAltaEdicion' class='sheet-modal-inner'><div class='sheet-modal-swipe-step'><form id='formAl' ><div class='modal-body'><div class='form-group'><label>Nombre</label><input id='nombreAl' type='text' class='form-control'></div><div class='form-group'><label>Apellido</label><input id='apellidoAl' type='text' class='form-control'></div><div class='form-group'><label>Curso</label><input id='cursoAl' type='text' class='form-control'></div><div class='form-group'><label>Materia</label><input id='materiaAl' type='text' class='form-control'></div><div class='form-group'><label>Email</label><input id='emailAl' type='email' class='form-control'></div><div class='form-group'><label>Teléfono</label><input id='telefonoAl' type='text' class='form-control'></div></form></div><div class='row'><button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button><button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button><button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button></div></div></div></div></div></div>")
+     $$("#contenedorCursos").append(nuevoCurso);
+   // $$("#contenedorCurso").append("<div class='col button button-fill color-red' id='"+p+"'><a href='curso"+p+"'><input id='"+p+"'></a></div>");
+   // $$("#"+p).append("'<div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div><div class='sheet-modal sheet-modal-top' style='height: auto'><div class='sheet-modal-inner'><div class=''><div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'><div id='modalAltaEdicion' class='sheet-modal-inner'><div class='sheet-modal-swipe-step'><form id='formAl' ><div class='modal-body'><div class='form-group'><label>Nombre</label><input id='nombreAl' type='text' class='form-control'></div><div class='form-group'><label>Apellido</label><input id='apellidoAl' type='text' class='form-control'></div><div class='form-group'><label>Curso</label><input id='cursoAl' type='text' class='form-control'></div><div class='form-group'><label>Materia</label><input id='materiaAl' type='text' class='form-control'></div><div class='form-group'><label>Email</label><input id='emailAl' type='email' class='form-control'></div><div class='form-group'><label>Teléfono</label><input id='telefonoAl' type='text' class='form-control'></div></form></div><div class='row'><button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button><button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button><button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button></div></div></div></div></div></div>")
     p++;
 
 
@@ -227,6 +242,7 @@ $$(document).on('page:init', '.page[data-name="personalizacion"]', function (e) 
   
 
 });
+
 $$(document).on('page:init', '.page[data-name="datosal"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   $$("#guardaAl").on("click", datosAlumnos);
@@ -252,7 +268,7 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
     
       
     };
-    dbPublicacion.collection("datosAl").sadd(sumarAlumn)
+    dbPublicacion.collection("datosAl").add(sumarAlumn)
     .then(function()
   {
     app.dialog.alert("Subida con exito");
@@ -320,13 +336,15 @@ $$(document).on('page:init', '.page[data-name="curso1"]', function (e) {
 
 $$(document).on('page:init', '.page[data-name="calendario"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
+  //$$("#traerDia").append('<div id=''></div>');
   
-
+  //return d.toLocaleString("en-us", { month: "short" }).toUpperCase();
   var calendarDateTime = app.calendar.create({
     inputEl: '#demo-calendar-date-time',
     timePicker: true,
     dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
   });
+  console.log(today)
   
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -349,6 +367,7 @@ $$(document).on('page:init', '.page[data-name="calendario"]', function (e) {
         },
       ]
   });
+  
 
   
 
@@ -788,4 +807,8 @@ function guardarD(){
     console.error("Error al subir un documento:  ", error);
   });
 }
+
+var nuevoCurso = "<div><div id='muestra' class='col button button-fill'>  <button id='mostrar'>Lista Alumnos</button>              </div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button> <div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'>  <th scope='col'>Nombre</th>  <th scope='col'>Apellido</th>  <th scope='col'>Curso</th>  <th scope='col'>Materia</th>  <th scope='col'>Email</th>  <th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div>        </div>           <div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'>  <div id='modalAltaEdicion' class='sheet-modal-inner'>    <div class='sheet-modal-swipe-step'>      <form id='formAl' >      <div class='modal-body'>        <input id='idAlumno' type='hidden'>        <div class='form-group'>          <label>Nombre</label>          <input id='nombreAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Apellido</label>          <input id='apellidoAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Curso</label>          <input id='cursoAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Materia</label>          <input id='materiaAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Email</label>          <input id='emailAl' type='email' class='form-control'>        </div>        <div class='form-group'>          <label>Teléfono</label>          <input id='telefonoAl' type='text' class='form-control'>        </div>      </form>             </div>      <div class='row'>                                  <button type='submit' id='agregarAl' class='btn btn-primary col-50'>Agregar</button>        <button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button>        <button type='button' id='guardarDatosAl' class='col button button-fill'>Guardar</button>      </div>    </div>  </div>";
+
+
 
