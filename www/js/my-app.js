@@ -89,6 +89,7 @@ var arrayId =[];
 
 // Handle Cordova Device Ready Event
 //Probando Calendario
+var nuevaFecha = "<div><input placeholder='nuevo recordatorio'></div>"
 var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   var weekLater = new Date().setDate(today.getDate() + 7);
@@ -109,9 +110,16 @@ var now = new Date();
           color: '#00ff00'
         },
       ]
-  });
-  console.log(weekLater)
+      
+      
+    });
 
+    
+    $$('#agregarFecha').on("click",function(){
+
+
+      $$("#nuevaFecha").add(today).val;      
+    });
 //.then( function () {
 
   //mainView.router.navigate('/about/');
@@ -177,10 +185,10 @@ $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
   
 
 });
-$$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
+$$(document).on('page:init', '.page[data-name="cursosnuevos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   $$("#rompamo").on("click", function(){ 
-    $$("#contenedorCursos").append(nuevoCurso);
+   $$("#contenedorCursos"+p).append(nuevoCurso);
     p++;
 
 

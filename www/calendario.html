@@ -17,110 +17,6 @@
         </div>
     </div>
     <div class="page-content">
-        <div class="block-title">Probando Calendario</div>
-        <div class="block block-strong">
-            <div class="block-title">Ingresa Recordatorio</div>
-            <div class="list no-hairlines-md">
-              <ul>
-                <li>
-                  <div class="item-content item-input">
-                    <div class="item-inner">
-                      <div class="item-input-wrap">
-                        <input type="text" placeholder="Your birth date" readonly="readonly" id="demo-calendar-default"/>
-                      </div>
-                    </div> 
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!--Probando linea de tiempo-->
-            <div class="block-title">Side By Side</div>
-            <div class="timeline timeline-sides">
-              <div class="timeline-item">
-                <div class="timeline-item-date">21 <small>DEC</small></div>
-                <div class="timeline-item-divider"></div>
-                <div class="timeline-item-content">
-                  <div class="timeline-item-inner">Some text goes here</div>
-                </div>
-                <input type="text" placeholder="hora y fecha" readonly="readonly" id="demo-calendar-date-time"/>
-                <div id="demo-calendar-date-time" type="text" placeholder="hora y fecha"></div>
-                <input type="text" >
-              </div>
-
-              <div>
-                <div class="list no-hairlines-md">
-                  <ul>
-                    <li>
-                      <div class="item-content item-input">
-                        <div class="item-inner">
-                          <div class="item-input-wrap">
-                            <input type="text" placeholder="hora y fecha" readonly="readonly" id="demo-calendar-date-time"/>
-                            <input type="text" >
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-item-date">22 <small>DEC</small></div>
-                <div class="timeline-item-divider"></div>
-                <div class="timeline-item-content">
-                  <div class="timeline-item-inner">Another text goes here</div>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-item-date">23 <small>DEC</small></div>
-                <div class="timeline-item-divider"></div>
-                <div class="timeline-item-content">
-                  <div class="timeline-item-inner">Just plain text</div>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-item-date">24 <small>DEC</small></div>
-                <div class="timeline-item-divider"></div>
-                <div class="timeline-item-content">
-                  <div class="timeline-item-inner">One more text here</div>
-                </div>
-              </div>
-            </div>
-            <!-- -->
-            <!-- segunda opción-->
-            <div class="block-title">Con Fecha Y Hora</div>
-            <div class="list no-hairlines-md">
-              <ul>
-                <li>
-                  <div class="item-content item-input">
-                    <div class="item-inner">
-                      <div class="item-input-wrap">
-                        <input type="text" placeholder="hora y fecha" readonly="readonly" id="demo-calendar-date-time"/>
-                        <input type="text" >
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <input type="button" id="nuevaf" value="Nueva fecha">
-          <p class="monthNames"></p>
-
-            <div class="block-title">Fecha</div>
-            <div class="list no-hairlines-md">
-              <ul>
-                <li>
-                  <div class="item-content item-input">
-                    <div class="item-inner">
-                      <div class="item-input-wrap">
-                        <input type="text" placeholder="Select date" readonly="readonly" id="demo-calendar-events"/>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-        </div>
-    </div>
     <!--tercera opción-->
     <div class="block-title">With Events</div>
     <div class="list no-hairlines-md">
@@ -132,6 +28,11 @@
                 <input type="text" placeholder="Select date" readonly="readonly" id="demo-calendar-events"/>
               </div>
             </div>
+          </div>
+          <div class="row">
+            <button id="agregarFecha" class="col-40 button button-fill">Agregar fecha</button>
+            <button id="estRecorda" class="col-40 button button-fill">Establecer recordatorio</button>
+            <div id="nuevaFecha"></div>
           </div>
         </li>
       </ul>
