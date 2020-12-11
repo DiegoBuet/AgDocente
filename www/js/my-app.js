@@ -187,8 +187,11 @@ $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
 });
 $$(document).on('page:init', '.page[data-name="cursosnuevos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
-  $$("#rompamo").on("click", function(){ 
-   $$("#contenedorCursos"+p).append(nuevoCurso);
+  $$("#btnCreaCursos11").on("click", function(){    
+    $$("#btnCurso").append("<div class='col'><a id='btnCurso"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>");
+    $$("#contenedorCurso").append(nuevoCurso);
+   
+   // $$("#"+p).append("'<div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div><div class='sheet-modal sheet-modal-top' style='height: auto'><div class='sheet-modal-inner'><div class=''><div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'><div id='modalAltaEdicion' class='sheet-modal-inner'><div class='sheet-modal-swipe-step'><form id='formAl' ><div class='modal-body'><div class='form-group'><label>Nombre</label><input id='nombreAl' type='text' class='form-control'></div><div class='form-group'><label>Apellido</label><input id='apellidoAl' type='text' class='form-control'></div><div class='form-group'><label>Curso</label><input id='cursoAl' type='text' class='form-control'></div><div class='form-group'><label>Materia</label><input id='materiaAl' type='text' class='form-control'></div><div class='form-group'><label>Email</label><input id='emailAl' type='email' class='form-control'></div><div class='form-group'><label>Teléfono</label><input id='telefonoAl' type='text' class='form-control'></div></form></div><div class='row'><button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button><button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button><button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button></div></div></div></div></div></div>")
     p++;
 
 
@@ -288,7 +291,12 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
     
       
     };
-    dbPublicacion.collection("datosAl").add(sumarAlumn)
+    colMascotas.doc(claveDeColeccion).set(datos);
+  db.collection(mascotas).doc(claveDeMascota).set(datos);
+
+
+    dbPublicacion.doc(email).set(sumarAlumn);
+    db.collection("datosAl").doc()
     .then(function()
   {
     app.dialog.alert("Subida con exito");
@@ -431,6 +439,8 @@ function fnLogin() {
     // ...
   });
 }
+
+
 function fnReg1() {
   email = $$('#regEmail').val(); 
   password = $$('#regPass').val();
@@ -453,6 +463,7 @@ function fnReg1() {
   });
 }
 
+ 
   function fnReg2() {
 
     var db = firebase.firestore();
@@ -564,7 +575,8 @@ function mSemana () {
   
   
 
-  
+ // colMascotas.doc(claveDeColeccion).set(datos);
+ // db.collection(mascotas).doc(claveDeMascota).set(datos);
 
   datosMsem = {
     hmL1:$$("#1hmL").val(),
@@ -718,12 +730,16 @@ function mSemana () {
 
   };
 
-  colmSemana.doc().set(datosMsem)
+  colmSemana.doc(email).set(datosMsem)
       .then(function(){ 
       alert("datos ingresados");
   } );
 
 
+
+};
+function recSemana () {
+  datosMsem
 
 };
 
