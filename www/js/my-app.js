@@ -280,8 +280,8 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
     console.log($$("#nombreAl").val())
     
     dbPublicacion = firebase.firestore();
-    var colAlumnos = dbPublicacion.collection('datosAl');
-    claveDeColeccion = email;
+    var colAlumnos = dbPublicacion.collection("datosAl");
+    
 
     var sumarAlumn =
     {
@@ -299,7 +299,7 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
     
 
 
-    colAlumnos.doc(claveDeColeccion).set(sumarAlumn)
+    colAlumnos.doc("datosAl").set(sumarAlumn)
     .then(function()
   {
     alert("datos ingresados");
