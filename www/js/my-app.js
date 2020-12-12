@@ -85,6 +85,7 @@ var app = new Framework7({
 var mainView = app.views.create('.view-main');
 var email, latitud, longitud;
 var p = 1;
+var z = 1; 
 var arrayId =[];
 
 // Handle Cordova Device Ready Event
@@ -279,7 +280,8 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
     console.log($$("#nombreAl").val())
     
     dbPublicacion = firebase.firestore();
-    var colAlumnos = db.collection('datosAl');
+    var colAlumnos = dbPublicacion.collection('datosAl');
+    claveDeColeccion = email;
 
     var sumarAlumn =
     {
@@ -288,7 +290,7 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
       apellido: $$("#apellidoAl").val(),
       curso: $$("#cursoAl").val(),
       materia: $$("#materiaAl").val(),
-      email: $$("#emailAl").val(),
+      imail: $$("#emailAl").val(),
       telefono: $$("#telefonoAl").val(),      
       
     
@@ -297,7 +299,7 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
     
 
 
-    colAlumnos.doc(email).set(sumarAlumn)
+    colAlumnos.doc(claveDeColeccion).set(sumarAlumn)
     .then(function()
   {
     alert("datos ingresados");
@@ -317,8 +319,8 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
 });
 $$("#mostrar").on("click", function(){
 
-  dbPublicacion = firebase.firestore();
-  var docRef = dbPublicacion.collection("datosAl");
+  db = firebase.firestore();
+  var docRef = db.collection("datosAl");
   docRef.get().then(function(doc) 
   {    
     doc.forEach(element => 
@@ -332,18 +334,7 @@ $$("#mostrar").on("click", function(){
   {
     console.log("Error getting document:", error);
   });
-
-
 })
-  //app.request.post('curso1.html', {  }, function (el) {
-   
-  //$$('#tabla1').html(data);
-  //app.dataTable.create('.mytable'); 
-   
-// });
- 
- 
-
 });
 
 
@@ -566,7 +557,7 @@ function datosAlumnos () {
   apellido=""+ $$("#apellidoAl").val();
   curso=""+ $$("#cursoAl").val();
   materia=""+ $$("#materiaAl").val();
-  email=""+ $$("#emailAl").val();
+  imail=""+ $$("#emailAl").val();
   telefono=""+ $$("#telefonoAl").val();
 
   datos = {
@@ -574,7 +565,7 @@ function datosAlumnos () {
     apellido: apellido,
     curso: curso, 
     materia: materia,
-    email: email,
+    imail: imail,
     telefono: telefono
 
   };
@@ -827,7 +818,7 @@ function recSem () {
        <td>${doc.data().apellido}</td>
        <td>${doc.data().curso}</td>
        <td>${doc.data().materia}</td>
-       <td>${doc.data().email}</td>
+       <td>${doc.data().imail}</td>
        <td>${doc.data().telefono}</td>
        </tr>
        `
@@ -848,14 +839,14 @@ function guardarD(){
 
 
   dbPublicacion = firebase.firestore();
-  var sumarAlumn =
+  var sumarAlumns =
   {
     //id:$$('#id').val(),
     nombre: $$("#nombre").val(),
     apellido: $$("#apellidoAl").val(),
     curso: $$("#cursoAl").val(),
     materia: $$("#materiaAl").val(),
-    email: $$("#emailAl").val(),
+    imail: $$("#emailAl").val(),
     telefono: $$("#telefonoAl").val()
     
   };
@@ -874,7 +865,7 @@ function guardarD(){
     coleccionProductos.update(actualizacionData);
     id = '';
     $('formAl').trigger('reset');
-  dbPublicacion.collection("datosAl").add(sumarAlumn)
+  dbPublicacion.collection("datosAl").add(sumarAlumns)
   .then(function()
   {
     app.dialog.alert("Subida con exito");
