@@ -276,11 +276,13 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
   //probando desplegar tabla
   $$("#mostrar").on("click", vamoAver);
   $$("#guardarDatosAl").on("click", function(){
-    console.log($$("#nombreAl").val())
     
-    dbPublicacion = firebase.firestore();
-    var colAlumnos = db.collection('datosAl');
-
+      var db = firebase.firestore();  
+      var colAlumnos = db.collection('datosAl');  
+    
+    
+    
+    
     var sumarAlumn =
     {
       
@@ -291,16 +293,17 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
       email: $$("#emailAl").val(),
       telefono: $$("#telefonoAl").val(),      
       
-    
-      
     };
-    
-
-
-    colAlumnos.doc(email).set(sumarAlumn)
+    console.log($$("#nombreAl").val())
+    colAlumnos.doc(email).set(datosMsem)
+      .then(function(){ 
+      alert("datos ingresados");
+    dbPublicacion.doc(colAlumnos).get(sumarAlumn);
+    db.collection("datosAl").doc()
     .then(function()
   {
-    alert("datos ingresados");
+    app.dialog.alert("Subida con exito");
+    console.log("Subida con exito");
     
     $$("#nombreAl").val(""),
     $$("#apellidoAl").val(""),
@@ -332,6 +335,7 @@ $$("#mostrar").on("click", function(){
   {
     console.log("Error getting document:", error);
   });
+  });
 
 
 })
@@ -345,7 +349,6 @@ $$("#mostrar").on("click", function(){
  
 
 });
-
 
 
 $$(document).on('page:init', '.page[data-name="curso1"]', function (e) {
