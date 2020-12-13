@@ -87,6 +87,7 @@ var email, latitud, longitud;
 var p = 1;
 var z = 1; 
 var arrayId =[];
+var arrayIdCurs = [];
 
 // Handle Cordova Device Ready Event
 //Probando Calendario
@@ -176,8 +177,9 @@ $$(document).on('page:init', '.page[data-name="principal"]', function (e) {
 });
 $$(document).on('page:init', '.page[data-name="msemana"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
-  $$("#btnmSemana").on("click", mSemanaD);
+  $$("#btnmSemana").on("click", traerMSemana);
   $$("#guardarMsem").on("click", mSemana);
+  $$("#traerSemana").on("click", traerMSemana);
 
 
 });
@@ -188,12 +190,13 @@ $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
 });
 $$(document).on('page:init', '.page[data-name="cursosnuevos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
-  $$("#btnCreaCursos11").on("click", function(){    
+  $$("#btnCreaCursos11").on("click", function(){  
+    fnIdCurso();
     $$("#btnCurso").append("<div class='col'><a id='btnCurso"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>");
-    $$("#contenedorCurso").append(nuevoCurso);
-   
+    $$("#contenedorCurso").append(nuevoCurso);  
+   p++;
    // $$("#"+p).append("'<div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div><div class='sheet-modal sheet-modal-top' style='height: auto'><div class='sheet-modal-inner'><div class=''><div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'><div id='modalAltaEdicion' class='sheet-modal-inner'><div class='sheet-modal-swipe-step'><form id='formAl' ><div class='modal-body'><div class='form-group'><label>Nombre</label><input id='nombreAl' type='text' class='form-control'></div><div class='form-group'><label>Apellido</label><input id='apellidoAl' type='text' class='form-control'></div><div class='form-group'><label>Curso</label><input id='cursoAl' type='text' class='form-control'></div><div class='form-group'><label>Materia</label><input id='materiaAl' type='text' class='form-control'></div><div class='form-group'><label>Email</label><input id='emailAl' type='email' class='form-control'></div><div class='form-group'><label>Teléfono</label><input id='telefonoAl' type='text' class='form-control'></div></form></div><div class='row'><button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button><button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button><button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button></div></div></div></div></div></div>")
-    p++;
+   
 
 
   })
@@ -206,9 +209,9 @@ $$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
     $$("#btnNuevoB").append("<div class='col'><a id='btnCursos"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>");
      $$("#contenedorCursos").append(nuevoCurso);
      $$("#btnCursos"+p).append("<div class='col'><a id='btnCursos"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>");
-   
+    
    // $$("#"+p).append("'<div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div><div class='sheet-modal sheet-modal-top' style='height: auto'><div class='sheet-modal-inner'><div class=''><div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'><div id='modalAltaEdicion' class='sheet-modal-inner'><div class='sheet-modal-swipe-step'><form id='formAl' ><div class='modal-body'><div class='form-group'><label>Nombre</label><input id='nombreAl' type='text' class='form-control'></div><div class='form-group'><label>Apellido</label><input id='apellidoAl' type='text' class='form-control'></div><div class='form-group'><label>Curso</label><input id='cursoAl' type='text' class='form-control'></div><div class='form-group'><label>Materia</label><input id='materiaAl' type='text' class='form-control'></div><div class='form-group'><label>Email</label><input id='emailAl' type='email' class='form-control'></div><div class='form-group'><label>Teléfono</label><input id='telefonoAl' type='text' class='form-control'></div></form></div><div class='row'><button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button><button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button><button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button></div></div></div></div></div></div>")
-    p++;
+   
 
 
   })
@@ -275,8 +278,15 @@ $$(document).on('page:init', '.page[data-name="datosal"]', function (e) {
 $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   //probando desplegar tabla
+  $$("#btnPruebaBD").on("click", fnPruebaBD)
   $$("#mostrar").on("click", vamoAver);
-  $$("#guardarDatosAl").on("click", function(){
+  //{
+   // antes de hacer cagadas $$("#btnPruebaBD").on("click", function(){
+   // fnPruebaBD ();
+  //})
+
+  
+ /* $$("#guardarDatosAl").on("click", function(){
     console.log($$("#nombreAl").val())
     
     dbPublicacion = firebase.firestore();
@@ -298,8 +308,7 @@ $$(document).on('page:init', '.page[data-name="curso2"]', function (e) {
     };
     
 
-
-    colAlumnos.doc("datosAl").set(sumarAlumn)
+    dbPublicacion.collection(email).doc(arrayIdCurs).set(sumarAlumn)
     .then(function()
   {
     alert("datos ingresados");
@@ -334,7 +343,7 @@ $$("#mostrar").on("click", function(){
   {
     console.log("Error getting document:", error);
   });
-})
+})*/
 });
 
 
@@ -545,9 +554,10 @@ function calendario () {
   return (calendarDateTime)
 
 };
+/*
 function datosAlumnos () {
   var db = firebase.firestore();  
-  var colAlumnos = db.collection('alumnos');
+  var colAlumnos = db.collection('datosAl');
   var fechaEnMiliseg = ""+ Date.now();
 
   
@@ -576,34 +586,179 @@ function datosAlumnos () {
   } );
 
   
-
-
-
-
-
 };
+*/
 
 
-$$("#traerSemana").on("click", function(){
-
-  colmSemana = firebase.firestore();
-  var docRef = colmSemana.doc(email).collection("miSemana");
-  docRef.get().then(function(doc) 
-  {    
-    doc.forEach(element => 
-    {
-      console.log(element.data());
-      $$("#muestra").append('<div id="1"></div>');
-      $$("#").append('<input type="text" id="nes" value="'+element.data().nombre+'">');
-    });
-  })
-  .catch(function(error) 
-  {
-    console.log("Error getting document:", error);
-  });
 
 
-})
+
+function traerMSemana (){
+
+
+  var db = firebase.firestore();  
+  //var docRef = db.collection("miSemana").doc(datosMsem);
+  
+  db.collection("miSemana").doc(email)
+      .onSnapshot(function(doc) {
+        datosMsem = {
+          hmL1:$$("#1hmL").val(),
+          hmL2:$$("#2hmL").val(),
+          hmL3:$$("#3hmL").val(),
+          hmL4:$$("#4hmL").val(),
+          hmL5:$$("#5hmL").val(),
+          hmL6:$$("#6hmL").val(),
+      
+          htL1:$$("#1htL").val(),
+          htL2:$$("#2htL").val(),
+          htL3:$$("#3htL").val(),
+          htL4:$$("#4htL").val(),
+          htL5:$$("#5htL").val(),
+          htL6:$$("#6htL").val(),
+      
+          hnL1:$$("#1hnL").val(),
+          hnL2:$$("#2hnL").val(),
+          hnL3:$$("#3hnL").val(),
+          hnL4:$$("#4hnL").val(),
+          hnL5:$$("#5hnL").val(),
+          hnL6:$$("#6hnL").val(),
+          
+          hmMar1:$$("#1hmMar").val(),
+          hmMar2:$$("#2hmMar").val(),
+          hmMar3:$$("#3hmMar").val(),
+          hmMar4:$$("#4hmMar").val(),
+          hmMar5:$$("#5hmMar").val(),
+          hmMar6:$$("#6hmMar").val(),
+      
+          htMar1:$$("#1htMar").val(),
+          htMar2:$$("#2htMar").val(),
+          htMar3:$$("#3htMar").val(),
+          htMar4:$$("#4htMar").val(),
+          htMar5:$$("#5htMar").val(),
+          htMar6:$$("#6htMar").val(),
+      
+          hnMar1:$$("#1hnMar").val(),
+          hnMar2:$$("#2hnMar").val(),
+          hnMar3:$$("#3hnMar").val(),
+          hnMar4:$$("#4hnMar").val(),
+          hnMar5:$$("#5hnMar").val(),
+          hnMar6:$$("#6hnMar").val(),
+      
+          hmMie1:$$("#1hmMie").val(),
+          hmMie2:$$("#2hmMie").val(),
+          hmMie3:$$("#3hmMie").val(),
+          hmMie4:$$("#4hmMie").val(),
+          hmMie5:$$("#5hmMie").val(),
+          hmMie6:$$("#6hmMie").val(),
+      
+          htMie1:$$("#1htMie").val(),
+          htMie2:$$("#2htMie").val(),
+          htMie3:$$("#3htMie").val(),
+          htMie4:$$("#4htMie").val(),
+          htMie5:$$("#5htMie").val(),
+          htMie6:$$("#6htMie").val(),
+      
+          hnMie1:$$("#1hnMie").val(),
+          hnMie2:$$("#2hnMie").val(),
+          hnMie3:$$("#3hnMie").val(),
+          hnMie4:$$("#4hnMie").val(),
+          hnMie5:$$("#5hnMie").val(),
+          hnMie6:$$("#6hnMie").val(),
+      
+          hmJ1:$$("#1hmJ").val(),
+          hmJ2:$$("#2hmJ").val(),
+          hmJ3:$$("#3hmJ").val(),
+          hmJ4:$$("#4hmJ").val(),
+          hmJ5:$$("#5hmJ").val(),
+          hmJ6:$$("#6hmJ").val(),
+      
+          htJ1:$$("#1htJ").val(),
+          htJ2:$$("#2htJ").val(),
+          htJ3:$$("#3htJ").val(),
+          htJ4:$$("#4htJ").val(),
+          htJ5:$$("#5htJ").val(),
+          htJ6:$$("#6htJ").val(),
+      
+          hnJ1:$$("#1hnJ").val(),
+          hnJ2:$$("#2hnJ").val(),
+          hnJ3:$$("#3hnJ").val(),
+          hnJ4:$$("#4hnJ").val(),
+          hnJ5:$$("#5hnJ").val(),
+          hnJ6:$$("#6hnJ").val(),
+      
+          hmV1:$$("#1hmV").val(),
+          hmV2:$$("#2hmV").val(),
+          hmV3:$$("#3hmV").val(),
+          hmV4:$$("#4hmV").val(),
+          hmV5:$$("#5hmV").val(),
+          hmV6:$$("#6hmV").val(),
+      
+          htV1:$$("#1htV").val(),
+          htV2:$$("#2htV").val(),
+          htV3:$$("#3htV").val(),
+          htV4:$$("#4htV").val(),
+          htV5:$$("#5htV").val(),
+          htV6:$$("#6htV").val(),
+      
+          hnV1:$$("#1hnV").val(),
+          hnV2:$$("#2hnV").val(),
+          hnV3:$$("#3hnV").val(),
+          hnV4:$$("#4hnV").val(),
+          hnV5:$$("#5hnV").val(),
+          hnV6:$$("#6hnV").val(),
+      
+          hmS1:$$("#1hmS").val(),
+          hmS2:$$("#2hmS").val(),
+          hmS3:$$("#3hmS").val(),
+          hmS4:$$("#4hmS").val(),
+          hmS5:$$("#5hmS").val(),
+          hmS6:$$("#6hmS").val(),
+      
+          htS1:$$("#1htS").val(),
+          htS2:$$("#2htS").val(),
+          htS3:$$("#3htS").val(),
+          htS4:$$("#4htS").val(),
+          htS5:$$("#5htS").val(),
+          htS6:$$("#6htS").val(),
+      
+          hnS1:$$("#1hnS").val(),
+          hnS2:$$("#2hnS").val(),
+          hnS3:$$("#3hnS").val(),
+          hnS4:$$("#4hnS").val(),
+          hnS5:$$("#5hnS").val(),
+          hnS6:$$("#6hnS").val(),
+      
+          hmD1:$$("#1hmD").val(),
+          hmD2:$$("#2hmD").val(),
+          hmD3:$$("#3hmD").val(),
+          hmD4:$$("#4hmD").val(),
+          hmD5:$$("#5hmD").val(),
+          hmD6:$$("#6hmD").val(),
+      
+          htD1:$$("#1htD").val(),
+          htD2:$$("#2htD").val(),
+          htD3:$$("#3htD").val(),
+          htD4:$$("#4htD").val(),
+          htD5:$$("#5htD").val(),
+          htD6:$$("#6htD").val(),
+      
+          hnD1:$$("#1hnD").val(),
+          hnD2:$$("#2hnD").val(),
+          hnD3:$$("#3hnD").val(),
+          hnD4:$$("#4hnD").val(),
+          hnD5:$$("#5hnD").val(),
+          hnD6:$$("#6hnD").val(),
+      
+          
+      
+        };
+          console.log("", doc.data());
+      });
+}
+
+
+
+
 function mSemana () {
   var db = firebase.firestore();  
   var colmSemana = db.collection('miSemana');
@@ -807,7 +962,7 @@ function recSem () {
 
   db=firebase.firestore();
    var tabla = document.getElementById("bodyAlumnos");
-   db.collection("datosAl").onSnapshot((querySnapshot)=> {
+   db.collection(email).onSnapshot((querySnapshot)=> {
      tabla.innerHTML = "";
      querySnapshot.forEach((doc)=>{
        console.log(`${doc.id}=>${doc.data()}`);       
@@ -834,6 +989,7 @@ function recSem () {
 
 
 //function guardarDatAl (){
+  /*
 function guardarD(){
   
 
@@ -877,9 +1033,77 @@ function guardarD(){
     console.error("Error al subir un documento:  ", error);
   });
 }
-
+*/
 
 
 
 var nuevoCurso = "<div><div id='cursos"+p+"' class='col button button-fill'>  <button id='mostrar"+p+"'>Lista Alumnos</button>              </div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button> <div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'>  <th scope='col'>Nombre</th>  <th scope='col'>Apellido</th>  <th scope='col'>Curso</th>  <th scope='col'>Materia</th>  <th scope='col'>Email</th>  <th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div>        </div>           <div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'>  <div id='modalAltaEdicion' class='sheet-modal-inner'>    <div class='sheet-modal-swipe-step'>      <form id='formAl' >      <div class='modal-body'>        <input id='idAlumno' type='hidden'>        <div class='form-group'>          <label>Nombre</label>          <input id='nombreAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Apellido</label>          <input id='apellidoAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Curso</label>          <input id='cursoAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Materia</label>          <input id='materiaAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Email</label>          <input id='emailAl' type='email' class='form-control'>        </div>        <div class='form-group'>          <label>Teléfono</label>          <input id='telefonoAl' type='text' class='form-control'>        </div>      </form>             </div>      <div class='row'>                                  <button type='submit' id='agregarAl' class='btn btn-primary col-50'>Agregar</button>        <button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button>        <button type='button' id='guardarDatosAl' class='col button button-fill'>Guardar</button>      </div>    </div>  </div>";
+
+function fnIdCurso (){
+arrayIdCurs.push(p);
+
+
+
+}
+function fnPruebaBD (){
+
+
+  dbPublicacion = firebase.firestore();
+  
+
+  var sumarAlumn =
+  {
+    
+    nombre: $$('#nombreAl').val(),
+    apellido: $$('#apellidoAl').val(),
+    curso: $$('#cursoAl').val(),
+    materia: $$('#materiaAl').val(),
+    imail: $$('#emailAl').val(),
+    telefono: $$('#telefonoAl').val(),      
+    
+  
+    
+  };
+  
+
+  //dbPublicacion.collection(email).doc(arrayIdCurs).set(sumarAlumn)
+  dbPublicacion.collection(email).add(sumarAlumn)
+  //dbPublicacion.collection(email).set(sumarAlumn)
+  .then(function()
+{
+  alert("datos ingresados");
+  
+  $$("#nombreAl").val(""),
+  $$("#apellidoAl").val(""),
+  $$("#cursoAl").val(""),
+  $$("#materiaAl").val(""),
+  $$("#emailAl").val(""),
+  $$("#telefonoAl").val("")  
+})
+.catch(function(error) 
+{
+  app.dialog.alert("Error al subir un documento:  ", error);
+  console.error("Error al subir un documento:  ", error);
+});
+/*
+$$("#mostrar").on("click", function(){
+
+  db = firebase.firestore();
+  var docRef = db.collection("datosAl");
+  docRef.get().then(function(doc) 
+  {    
+    doc.forEach(element => 
+    {
+      console.log(element.data());
+      $$("#muestra").append('<div id="1"></div>');
+      $$("#").append('<input type="text" id="nes" value="'+element.data().nombre+'">');
+    });
+  })
+  .catch(function(error) 
+  {
+    console.log("Error getting document:", error);
+  });
+})
+*/
+}
 
