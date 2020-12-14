@@ -1048,7 +1048,8 @@ arrayIdCurs.push(p);
 function fnPruebaBD (){
 
 
-  dbPublicacion = firebase.firestore();
+  db = firebase.firestore();
+  var dbPublicacion = db.collection(email).doc('curso');
   
 
   var sumarAlumn =
@@ -1068,6 +1069,7 @@ function fnPruebaBD (){
 
   //dbPublicacion.collection(email).doc(arrayIdCurs).set(sumarAlumn)
   dbPublicacion.collection(email).add(sumarAlumn)
+  
   //dbPublicacion.collection(email).set(sumarAlumn)
   .then(function()
 {

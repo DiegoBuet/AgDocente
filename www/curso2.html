@@ -8,23 +8,23 @@
             <span class="ios-only">Back</span>
             </a>
         </div>
-        <div class="title">Curso 1</div>
+        <div class="title">Curso 2</div>
         </div>
     </div>
     <div class="page-content">
             <!-- aca arrancamos a probar-->
-            <div><input placeholder='nuevo recordatorio'>
+            <div>
             </div>
             <div id="muestra" class="col button button-fill">
-              <button id="mostrar">Lista Alumnos</button>
+              <button class="col button button-fill" id="mostrar">Lista Alumnos</button>
               
             </div>
             
             <div id="traerM">
 
             </div>
-            <button type="button" class="link sheet-close btn btn-secondary col-50" data-dismiss="modal">Cerrar</button>
-            <button  class="col button button-fill"><p><a type="button" href="#" data-sheet=".my-sheet" class="sheet-open button button-fill "> Abrir Coso</a></p></button> 
+            <button  class="sheet-open col button button-fill"  href="#" data-sheet=".my-sheet" type="button">Ingresar alumnos</button> 
+
             <div>
               <table id="tablaAlumno" class="table table-bordered">
                 <thead>
@@ -38,8 +38,7 @@
                   </tr>
       
                 </thead>
-                <tbody id="bodyAlumnos">
-                  "<div class='col'><a id='btnCursos"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>"
+                <tbody id="bodyAlumnos">                 
                   
       
                 </tbody>
@@ -88,10 +87,10 @@
                         </form>
                          
                         </div>
-                        <div class="row">                          
-                          <button type="submit" id="agregarAl" class="btn btn-primary col-50">Agregar</button>
+                        <div class="row">                      
+                          
+                          <button type="button" id="btnPruebaBD" class="col-50 button button-fill">Guardar</button>
                           <button type="button" class="link sheet-close btn btn-secondary col-50" data-dismiss="modal">Cerrar</button>
-                          <button type="button" id="btnPruebaBD" class="col button button-fill">Guardar</button>
                         </div>
                       </div>
                     </div>
