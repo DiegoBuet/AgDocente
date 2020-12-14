@@ -223,31 +223,23 @@ $$(document).on('page:init', '.page[data-name="psemana"]', function (e) {
 });
 $$(document).on('page:init', '.page[data-name="cursosnuevos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
-  $$("#btnCreaCursos11").on("click", function(){  
-    fnIdCurso();
-    $$("#btnCurso").append("<div class='col'><a id='btnCurso"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>");
-    $$("#contenedorCurso").append(nuevoCurso);  
-   p++;
+ // $$("#btnCreaCursos11").on("click", function(){  
+    //fnIdCurso();
+    //$$("#btnCurso").append("<div class='col'><a id='btnCurso"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>");
+   // $$("#contenedorCurso").append(nuevoCurso);  
+  // p++;
    // $$("#"+p).append("'<div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div><div class='sheet-modal sheet-modal-top' style='height: auto'><div class='sheet-modal-inner'><div class=''><div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'><div id='modalAltaEdicion' class='sheet-modal-inner'><div class='sheet-modal-swipe-step'><form id='formAl' ><div class='modal-body'><div class='form-group'><label>Nombre</label><input id='nombreAl' type='text' class='form-control'></div><div class='form-group'><label>Apellido</label><input id='apellidoAl' type='text' class='form-control'></div><div class='form-group'><label>Curso</label><input id='cursoAl' type='text' class='form-control'></div><div class='form-group'><label>Materia</label><input id='materiaAl' type='text' class='form-control'></div><div class='form-group'><label>Email</label><input id='emailAl' type='email' class='form-control'></div><div class='form-group'><label>Teléfono</label><input id='telefonoAl' type='text' class='form-control'></div></form></div><div class='row'><button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button><button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button><button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button></div></div></div></div></div></div>")
    
 
 
-  })
+ // })
 });
 
 $$(document).on('page:init', '.page[data-name="cursos"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
-  
-  $$("#rompamo").on("click", function(){ 
-    $$("#btnNuevoB").append("<div class='col'><a id='btnCursos"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>");
-     $$("#contenedorCursos").append(nuevoCurso);
-     $$("#btnCursos"+p).append("<div class='col'><a id='btnCursos"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>Nuevo Curso"+p+"</a></div>");
-    
-   // $$("#"+p).append("'<div id='muestra' class='col button button-fill'><button id='mostrar'>Lista Alumnos</button></div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill color-grey'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button><div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'><th scope='col'>Nombre</th><th scope='col'>Apellido</th><th scope='col'>Curso</th><th scope='col'>Materia</th><th scope='col'>Email</th><th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div><div class='sheet-modal sheet-modal-top' style='height: auto'><div class='sheet-modal-inner'><div class=''><div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'><div id='modalAltaEdicion' class='sheet-modal-inner'><div class='sheet-modal-swipe-step'><form id='formAl' ><div class='modal-body'><div class='form-group'><label>Nombre</label><input id='nombreAl' type='text' class='form-control'></div><div class='form-group'><label>Apellido</label><input id='apellidoAl' type='text' class='form-control'></div><div class='form-group'><label>Curso</label><input id='cursoAl' type='text' class='form-control'></div><div class='form-group'><label>Materia</label><input id='materiaAl' type='text' class='form-control'></div><div class='form-group'><label>Email</label><input id='emailAl' type='email' class='form-control'></div><div class='form-group'><label>Teléfono</label><input id='telefonoAl' type='text' class='form-control'></div></form></div><div class='row'><button type='button' id='agregarAl' class='btn btn-primary col-50'>Agregar</button><button type='button' class='link sheet-close btn btn-secondary col-50 data-dismiss=modal'>Cerrar</button><button type='button' id='guardarDatosAl' class='col button button-fill color-grey'>Guardar</button></div></div></div></div></div></div>")
-   
 
-
-  })
+  $$("#btnCreaCursos11").on("click", nuevoC);
+  console.log(p)
   
 });
 $$(document).on('page:init', '.page[data-name="dictado"]', function (e) {
@@ -298,11 +290,7 @@ $$(document).on('page:init', '.page[data-name="personalizacion"]', function (e) 
 
 });
 
-$$(document).on('page:init', '.page[data-name="datosal"]', function (e) {
-  // Do something here when page with data-name="about" attribute loaded and initialized
-  $$("#guardaAl").on("click", datosAlumnos);
 
-});
 $$(document).on('page:init', '.page[data-name="curso1"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   $$("#btnPruebaBD1").on("click", fnPruebaBD1)
@@ -557,6 +545,28 @@ function calendario () {
   return (calendarDateTime)
 
 };
+//borrar esto
+/*
+dbPublicacion = firebase.firestore();
+    var docRef = dbPublicacion.collection('miSemana').doc(mail);
+    docRef.get().then(function(doc) 
+    {
+      doc.forEach(element => 
+      {
+        $$("#publicaciones").append('<div id="'+ numeroPublicacion +'"></div>');
+          
+element.data
+().imagenes.forEach(imagen => 
+            {
+              $$("#"+ numeroPublicacion).append('<img src="' + imagen + '" style="width:35vw;height:35vw;">')
+            })
+        numeroPublicacion ++;
+      });
+    })
+    .catch(function(error) 
+    {
+      console.log("Error getting document:", error);
+    });*/
 
 function traerMSemana (){
 
@@ -894,6 +904,7 @@ function mSemana () {
 
 //};
 
+
 function mSemanaD (){
   var db = firebase.firestore();  
   var docRef = db.collection("miSemana").doc(datosMsem);
@@ -915,10 +926,14 @@ function recSem () {
     updateStarCount(postElement, data);
   });
 }
-var nuevoCurso = "<div><div id='cursos"+p+"' class='col button button-fill'>  <button id='mostrar"+p+"'>Lista Alumnos</button>              </div><div id='traerM'></div><button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button><button  class='col button button-fill'><p><a type='button' href='#' data-sheet='.my-sheet' class='sheet-open button button-fill '> Abrir Coso</a></p></button> <div><table id='tablaAlumno' class='table table-bordered'><thead><tr class='bg-dark text-light'>  <th scope='col'>Nombre</th>  <th scope='col'>Apellido</th>  <th scope='col'>Curso</th>  <th scope='col'>Materia</th>  <th scope='col'>Email</th>  <th scope='col'>teléfono</th></tr></thead><tbody id='bodyAlumnos'></tbody></table></div>        </div>           <div id='btnSumarAlumno' class='sheet-modal my-sheet' style='height: auto'>  <div id='modalAltaEdicion' class='sheet-modal-inner'>    <div class='sheet-modal-swipe-step'>      <form id='formAl' >      <div class='modal-body'>        <input id='idAlumno' type='hidden'>        <div class='form-group'>          <label>Nombre</label>          <input id='nombreAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Apellido</label>          <input id='apellidoAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Curso</label>          <input id='cursoAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Materia</label>          <input id='materiaAl' type='text' class='form-control'>        </div>        <div class='form-group'>          <label>Email</label>          <input id='emailAl' type='email' class='form-control'>        </div>        <div class='form-group'>          <label>Teléfono</label>          <input id='telefonoAl' type='text' class='form-control'>        </div>      </form>             </div>      <div class='row'>                                  <button type='submit' id='agregarAl' class='btn btn-primary col-50'>Agregar</button>        <button type='button' class='link sheet-close btn btn-secondary col-50' data-dismiss='modal'>Cerrar</button>        <button type='button' id='guardarDatosAl' class='col button button-fill'>Guardar</button>      </div>    </div>  </div>";
+function nuevoC(){
+
+  $$("#btnCurso").append("<div class='col'><a id='btncurso"+p+"' class='col button button-fill' href='/curso"+p+"/' data-view='.page-content'>curso"+p+"</a></div>");
+  p++;
+}
 
 
-arrayIdCurs.push(p);
+
 
  function vamoAver1(){
 
